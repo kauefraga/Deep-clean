@@ -10,12 +10,12 @@ echo ==================================================================
 echo.
 echo.
 
-echo [1] Prosseguir com a limpeza profunda
+echo [1] Proceed to deep clean
 echo [2] Activate energy plan (ReviOS energyplan)
 echo.
 echo [3] Exit
 
-set /p opcao=Write your op 
+set /p opcao=Type your option: 
 
 if "%opcao%" == "1" goto op1
 if "%opcao%" == "2" goto op2
@@ -31,18 +31,14 @@ goto inicio
 :op2
 powercfg /import C:\energyplan\RevisionPlan.pow
 
-:: pega as guid e joga pra i.txt
 powercfg /l > C:\energyplan\i.txt
 
-:: pega o guid e joga pra h.txt
 for /f "tokens=6 skip=4" %%a in (C:\energyplan\i.txt) do echo %%a > c:\energyplan\h.txt
 
-:: pega o guid h.txt e joga na variavel "g"
 set /p g= < c:\energyplan\h.txt
 
 echo %g%
 
-:: se "g" existe joga pra gr
 if exist %g% goto :gr
 
 :gr
