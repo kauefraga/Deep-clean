@@ -15,11 +15,11 @@ echo [2] Activate energy plan (ReviOS energyplan)
 echo.
 echo [3] Exit
 
-set /p opcao=Type your option: 
+set /p option=Type your option: 
 
-if "%opcao%" == "1" goto op1
-if "%opcao%" == "2" goto op2
-if "%opcao%" == "3" goto op3
+if "%option%" == "1" goto op1
+if "%option%" == "2" goto op2
+if "%option%" == "3" goto op3
 
 :op1
 if exist c:\windows\temp\ del /f /s /q c:\windows\temp\ 
